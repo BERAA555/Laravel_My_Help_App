@@ -1,0 +1,14 @@
+public function inserting(Request $request)
+    {
+        $request->validate([
+            'name' => 'unique:posts|required|max:10' ,  
+                            // table name
+            'age' => "required|max:5",
+                    //'image|mimes:jpg,png,jpeg,gif,svg|max:2048'  for image
+        ]);
+        Post::create([
+            'name' => $request->name,
+            'age' => $request->age,
+        ]);
+        return view("page2") ;
+    }

@@ -1,0 +1,27 @@
+public function store (Request $request){
+    // <input type="file" name="image"> input for image
+
+    // $image = $request->file('image')->getClientOriginalName(); // have name of image
+    // $tmp =$request->file('image')	                          //  save image tmp
+    $path =$request->file('image')->store("",'beraa'); // it will get image randomly name
+    // copy image to project and save it inside the path in beraa disk
+    // to create folder inside beraa disk ( store("users",'beraa') )
+    // to add name of image also
+    // $path =$request->file('image')->storeAs('users' , '<image name>' ,'beraa');  
+    image::create([
+            'image' => $path ,
+            'imageName' => $request->photoname, 
+    ]);
+    return redirect()->back();
+}
+// $image = image::find($id);  // for delete image
+// Storage::disk('beraa')->delete($image->path);
+    public function image (){
+        $images = image::all();
+        return view( 'image' ,compact('images') ); 
+    }
+    // @foreach($images as $image)    // for show image
+    // <td scope="row"> {{$image->imageName}} </td>
+    // <td ><img src="{{asset('images/'.$image->image)}}" alt="" width='70' height="70"></td>
+    // @endforeach
+}

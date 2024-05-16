@@ -1,0 +1,28 @@
+$a = [ 10 , 14 , 13 , 10 , 13 ] ;
+    $b = [ 10 , 14 , 17 , 30 ] ;
+
+// sum of element   
+    $sum = array_sum($a);  // 60
+
+// delete repeated elements    
+    $unique = array_unique($a);  // [ 10 , 14 , 13 ] 
+
+// add delete from first element
+    array_unshift( $b , 50 );   //  [ 50 , 10 , 14 , 17 , 30 ] 
+    array_shift( $b );            //  [ 10 , 14 , 17 , 30 ]
+
+// check if value in array 
+    $in_array = in_array( 100 , $a); // return (1) if true () if false 
+
+// next, prev and end element
+    $next = next($a);   // 14  ( a[0]  => a[1] )
+    $next2 = next($a);  // 13  ( a[1]  => a[2] )
+
+    $prev = prev($a) ;  // 14  ( a[2]  => a[1] )
+
+    $end = end($b);     // 30 end element 
+
+//  sort
+    sort($a);   // return [ 10 , 10 , 13 , 13 , 14 ]  // ascending
+    rsort($a);  // return  [ 14 , 13 , 13 , 10 , 10 ] // descending
+    // $na = sort($a); not correct for sorting

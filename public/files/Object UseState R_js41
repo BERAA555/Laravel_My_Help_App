@@ -1,0 +1,24 @@
+import React from "react";
+import { ReactDOM , useState , useEffect } from "react";
+
+function Page() {
+                                // create using object
+    const  [{name , count} , setCount ] = useState({name : "beraa" ,count : 0});
+    const setData =()=>{        // change with function
+      setCount(oldData => ({       // for get the old data
+        ...oldData ,
+        count : count - 10}));
+    }
+    return (
+        <div className="container">     // change directly
+            <button onClick={() => setCount({name : "ali" ,count : count + 10})}>
+              change
+            </button>
+            <button onClick={setData}>    // change with function
+              change more time
+            </button>
+            <div>count is : {count} name is {name} </div>
+        </div>
+    );
+  }
+export default Page;

@@ -1,0 +1,33 @@
+<style>
+    .active2{
+    background-color: rgb(154, 32, 32);
+    border-radius: 10px;
+  }
+</style>
+
+<ul class="">
+    <li class="nav-item">
+      <a href="#" class="toggle active2  text-white " aria-current="page"> Home</a>
+    </li>
+    <li>
+      <a href="#" class="toggle  text-white "> Dashboard</a>
+    </li>
+    <li>
+      <a href="#" class="toggle text-white"> Orders</a>
+    </li>
+</ul>
+
+
+<script>
+
+    var toggle = document.getElementsByClassName("toggle");
+    
+    for (var i = 0; i < toggle.length; i++) {
+      toggle[i].addEventListener("click", function() {
+      var current = document.getElementsByClassName("active2");
+      current[0].className = current[0].className.replace(" active2", "");
+      this.className += " active2";
+      });
+    }
+    
+</script>

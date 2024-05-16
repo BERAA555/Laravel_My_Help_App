@@ -1,0 +1,18 @@
+---------- get or set data to database with now look ( upper , lower  ) ----------
+
+1 - make model and migrate 
+
+2- in model   ( strtoupper , strtolower ,  ucfirst , .... )
+ 
+    protected function Name(): Attribute            // Name -> is the name of column
+    {
+        return Attribute::make(
+            get: fn ($value) => strtolower($value),    // to get data from DB as lower
+            set: fn ($value) => strtoupper($value),   // to set data to DB as upper
+
+        );
+    }
+
+we should don't forget import attribute page
+
+-  use Illuminate\Database\Eloquent\Casts\Attribute;

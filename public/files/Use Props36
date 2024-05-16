@@ -1,0 +1,31 @@
+in first page 
+import React from "react";
+import { ReactDOM } from "react";
+import Page2 from './page2'
+
+function Page() {
+    return (
+      <>
+        <Page2 name="Beraa" age = "24" />
+        <Page2 name="Ali" age = "26" />
+        <Page2 name="Ahmed" age = "28" />
+      </>
+    );
+  }
+export default Page;  
+
+in seconde page 
+import React from "react";
+import { ReactDOM } from "react";
+
+function Page2(props) {
+
+    return(
+        <div>
+            <div>Programer Name is {props.name}  </div>
+            <div>Programer Age is {props.age}    </div>
+            <br/>
+        </div>
+    );
+}
+export default Page2;

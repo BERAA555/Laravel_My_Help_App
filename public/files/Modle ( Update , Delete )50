@@ -1,0 +1,29 @@
+public function edit($id)     // send old data to edit page 
+    {
+        $post = Post :: find($id);   // or
+    //  $post = Post::where('id','=','2')->get();   // or
+    //  $post = Post::whereId($id)->get()
+        return view('page.edit', compact('post'));  // edit file inside page folder
+    }
+    public function update(Request $request, $id){
+        $post = Post :: find($id);         
+        $post->update([
+            'name'  => $request->name ,
+            'password'  => $request->password ,
+        ]);
+        return redirect()->back() ;    // or 
+    }  
+    public function update2(Request $request, $id){
+         $post = Post::find($id);
+         $post ->name = $request->name;
+         $post ->password = $request->password;
+         $post->save();
+         return redirect()->back() ;
+     }
+     // delete Data
+    public function destroy( $id){
+        Post::destroy($id);    // or
+    //  $posts = Post:: find($id);
+    //  $posts->delete();
+        return redirect()->route('kayit.index');
+    }

@@ -1,0 +1,43 @@
+---------------- -------------------
+-s  => have size or not
+-f  => is file or not
+-d  => is folder of not
+-e  => is there is or not
+-x  => is have execute permision  or not
+-r  => is have read permision or not
+-w  => is have write permision or not
+------------------------------------------------
+Ex :
+if [ -s man2.txt  ]    // if have size (have data)
+then
+    echo "yes"
+else
+    echo "no"
+fi
+
+if [ -e man2.txt  ]    // if there is or not
+then
+    echo "yes"
+else
+    echo "no"
+fi
+------------------------------------------------
+// app for add readed names to file if not found
+file=$(cat man.txt)
+read -p "enter your name : " name
+
+b=0
+for a in $file
+do
+    if [ $a == $name ]
+    then
+        echo " the name is added before"
+        b=1
+        break
+    fi
+done
+if [ $b == 0 ]
+then
+    echo $name >> man.txt
+    echo "name is added"
+fi

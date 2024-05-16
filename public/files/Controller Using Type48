@@ -1,0 +1,16 @@
+// return data or view page
+    public function home (){  
+        // return 10 ;
+        return view('home');
+    }
+// with send data to view page
+    public function Update($id){  
+        $id = $id ;
+        $name = "beraa" ;
+        return view('Update', compact('id','name'));
+    }
+// return last page or page by routing
+    public function Update2($id){  
+        // return redirect()->back()
+        return redirect()->route('.....');
+    }

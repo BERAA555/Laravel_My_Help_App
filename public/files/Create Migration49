@@ -1,0 +1,25 @@
+--------------------- migration ----------------
+Create migration
+- php artisan make:migration create_users_table
+
+for install tables in database 
+- php artisan migrate
+
+for know the table state ( is installed or not)
+- php artsian migarte status
+
+---------- some command in migrate ----------
+to go back to last step
+- php artisan migrate:rollback
+
+to go back to number of step
+- php artisan migrate:rollback --step = 4
+
+to go back to all step
+- php artisan migrate:reset
+
+to delete all data < reinstall the table in DB>
+- php artisan migrate:refresh
+
+to delete all date < delete and reinstall the table in DB>
+- php artisan migrate:fresh

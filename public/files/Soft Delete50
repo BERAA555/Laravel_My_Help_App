@@ -1,0 +1,25 @@
+// Deal with Soft Delete //
+
+    // 1 - we should know it in model page 
+	// ( in class )  use SoftDeletes ;
+	// ( in top )    use Illuminate\Database\Eloquent\SoftDeletes;	
+    // 2- we shoude add column to table using migrate and it will be
+    //     $table -> softDeletes();
+    public function softDelete( $id)
+    {
+            // send Data to Trash
+        $posts = Post::onlyTrashed()->get();                
+        return view('kayit.deletedData ', compact('kayits'));  
+    }
+    // return Deleted Data From Trash
+    public function reWriteData($id)
+    {
+        Post::withTrashed()->where('id', $id)->restore();
+        return redirect()->back();
+    }
+    // Delete data From Trash
+    public function reDeleteData($id)
+    {
+        Post::withTrashed()->where('id', $id)->forceDelete();
+        return redirect()->back();
+    }

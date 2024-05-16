@@ -1,0 +1,60 @@
+1 - create lang folder
+    php artisan lang:publish
+2 - copy en folder inside lang folder and make ar or tr folder
+3 - creat file user.php in all folder (en ,ar , tr) to write phrases for user in all language
+
+user.php in ar folder
+
+ <?php
+    return [
+    'direct'  => 'rtl',
+    'dashboard' => "الصفحة الرئيسية" ,
+    'addCourse' => "اضافة دورة دراسية" ,
+    ];
+ ?>
+
+user.php in en folder
+
+ <?php
+    return [
+        'direct'  => 'ltr',
+        'dashboard' => "Dashboard " ,
+        'addCourse' => "Add Course  " ,
+    ];
+ ?>
+
+ 4 - in route
+    Route::get('/lang/{locale}' , function(string $locale){
+        if (! in_array($locale, ['en', 'ar', 'tr'])) {
+            return view('error');
+        }
+        session()->put('locale' , $locale);
+        return redirect()->back();
+    })->name('lang');
+
+5 - in links in view pages. and change languages like (ar , tr)
+    <a href="{{route('lang' ,'en')}}">
+
+6 - create middleware
+    php artisan make:middleware LangConversion
+
+7 - add path of middleware in app->http->kernel  inside
+    protected $middlewareGroups = [          // it mean that files is defined in all route
+        'web' => [
+            .
+            .
+            .
+            \App\Http\Middleware\LangConversion::class,
+        ],
+
+8 - in LangConversion file in Middleware
+    {
+        if(session()->has('locale')){
+
+            App::setLocale(session()->get('locale'));
+        }
+        return $next($request);
+    }
+9 - now in view pages change phrases with phrases in user file
+
+    <p> {{ __('user.addCourse')}} </p>

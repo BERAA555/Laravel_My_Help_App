@@ -1,0 +1,32 @@
+import React from "react";
+import { ReactDOM , useState , useEffect } from "react";
+
+function Page() {
+
+  const  [ count , setCount ] = useState( 0);
+  const  [ Win , setWin ] = useState( "NO");
+  useEffect(()=>{
+    if (count == 50){
+      setWin("YES");
+    }
+  });
+  useEffect(()=>{               // We can make many useEffect
+    if (count != 50){
+      setWin("NO");
+    }
+  }, [count]) ;    // make it run just when change count value
+
+  useEffect(() => {    //  useEffect with return
+  return () => { alert ("hello") }
+  },[]);
+
+    return (
+        <div className="container">
+            <button onClick={() => setCount(count + 10)}>
+              change
+            </button>
+            <div>count is : {count} Are Your Win : {Win} </div>
+        </div>
+    );
+  }
+export default Page;

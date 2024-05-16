@@ -1,0 +1,31 @@
+--------------------- middleware ---------------------
+1 - php artisan make:middleware CheckUser   // install it
+2 - we should definded in kernel   ( HTTP -> kernel -> routeMiddleware function )
+	'check_user' => \App\Http\Middleware\CheckUser::class,
+	         |							|
+  ( name which we'll use it )		( middleware name )
+
+3 - example 
+
+1 - create status in user table  // don't forget add it in model in $fillable
+	            $table->boolean('status')->default(0);   
+2 - create PostController 
+	   public function index(){
+       		 return 'ok';
+    	   }
+3 - in route
+	Route::get('post' , [UserController::class, 'index'])->middleware('check_user');
+
+4 - now in middleware -> CheckUser page inside handle function 
+	    if ( auth()->user()->status == 0 ){					// we can use it when there are Authentication 
+           		 return ' go to login in   ';
+		}
+		return $next($request);
+
+------------------------------------------------------------------------------------
+- if there are alot of page we can use
+
+	Route::middleware(['check_user'])->group(function(){
+ 		Route::get('/post' , [UserController::class, 'index']);
+	});
+------------------------------------------------------------------------------------

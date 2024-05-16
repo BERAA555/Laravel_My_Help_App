@@ -1,0 +1,24 @@
+import React from "react";
+import { ReactDOM , useState } from "react";   // import useState
+
+function Page() {
+
+    const  [count , setCount ] = useState(0);   // Create Const Array Contain Variable And Function For
+                                                // Change This Variable
+    const setForCount = ()=>{                   // function for change count value
+      setCount(count + 1);      // add one to count using setCount
+    }
+
+    return (
+        <div className="container">
+          <button onClick={() => setCount(count - 1)}>  // minus one from count
+            MINUS                                       // using setCount directly
+          </button>
+          <button onClick={setForCount}>        // use function to change value
+            ADD
+          </button>
+          <div> {count}</div>
+        </div>
+    );
+  }
+export default Page;

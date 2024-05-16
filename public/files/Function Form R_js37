@@ -1,0 +1,10 @@
+import React from "react";
+import { ReactDOM } from "react";
+
+function App() {
+    // javascript's codes
+    return (
+      <div> Hello </div>    // html codes
+    );
+  }
+export default App;

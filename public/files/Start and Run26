@@ -1,0 +1,2 @@
+Start Server   :   sudo opt/lampp/lampp start
+Run Project    :   php artisan serve

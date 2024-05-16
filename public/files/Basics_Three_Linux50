@@ -1,0 +1,26 @@
+# use ( [] , * , {} , ? )
+
+1 - touch a{1..2}.txt => create (a1.txt , a2.txt )
+2 - rm -r a*          => delete all file start with (a)
+3 - ls a?b            => find all which start with a and any one letter
+                         and ended with b ( like a4b)
+4 - ls [a-z][ab].txt  => find all which (first letter from a to z ) and
+                         second will be (a or b) and in last .txt
+
+# change Mod
+
+  U   G      O        r     w      x
+user grup  other    read  write  execute
+                      4     2      1
+chmod u+r test.txt  => get r permision for user
+chmod a-w test.txt  => take w permision form grup
+chmod 760 test.txt  =>
+for user  get rwx
+for grup  get rw-
+for other get ---
+chmod 777 test.txt  =>
+for all get all
+
+# print inside file
+ls > Desktop/file1   => print with delete all old data
+ls >> Desktop/file1  => print without deleting

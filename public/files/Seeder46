@@ -1,0 +1,25 @@
+------------------------------------ seeder ------------------------------------
+
+php artisan make:seeder UserSeeder   // it will installed in Datebase->seeder
+
+ - in seeder page in run function 
+
+   public function run()
+    {
+        User::truncate();    // to delete all data in DB before inserting
+        User::create([
+            'name' => 'John Doe',
+            'password' => Hash::make('142'),
+            'state' => 0 ,
+        ]);
+    }
+
+- for run seeder
+ 	php artisan db:seed --class = UserSeeder   // name of seeder
+- if there are alot of seeder we can call it with one code
+
+1 - go to DatabaseSeeder page inside run function 
+   	$this->call([
+            	UserSeeder::class,      // write all seeder here 
+        	]); 
+2 - php artisan db:seed     // run seeder

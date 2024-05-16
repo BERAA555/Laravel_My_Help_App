@@ -1,0 +1,29 @@
+$a = [ 10 , 14 , 13 ] ;
+    $b = [ 10 , 14 , 17 , 30 ] ;
+
+// add delete from last element
+    array_push($a ,18);         // a =  [10,14,13,18];
+    array_pop($a);              // a =  [10,14,13];
+    
+// count
+    $count = count($b);  //  4
+
+// different
+    $diff  = array_diff($a , $b);   // [ 13 ]
+    $diff2 = array_diff($b , $a);   // [ 17 , 30 ]
+
+// search
+    $search = array_search ( 13 , $a ) ;   // 1  (index of this value if there is)
+    $search2 = array_search( 140 , $a ) ;  //  ( if there isn't return nothink )
+
+// replace
+    $replace  = array_replace ( $a , $b );     // [10,14,17,30] 
+    // replace[0] = b[0] , replace[1] = b[1] , replace[2] = b[2] , replace[3] = b[3]
+    $replace2  = array_replace( $b , $a );     // [10,14,13,30]
+    // replace[0] = a[0] , replace[1] = a[1] , replace[2] = a[2] , replace[3] = b[3]
+
+// reverse
+    $reverse = array_reverse($a);  // [13 , 14 , 10]
+
+// random
+    $random = array_rand($a) ; // number form 0 to 2 randomly (index number)

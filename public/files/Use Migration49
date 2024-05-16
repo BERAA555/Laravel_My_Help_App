@@ -1,0 +1,11 @@
+public function up()
+    {
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table -> string("name" , 10);  // < 10 letter > < it's true string("name") >
+            $table -> integer("number");
+            $table -> float("money");
+            $table -> boolean ("cheak") -> defualt (0) ; 
+            $table->timestamps();
+        });
+    }

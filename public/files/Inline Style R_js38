@@ -1,0 +1,10 @@
+import React from "react";
+import { ReactDOM } from "react";
+
+function App() {
+    return (
+      
+      <div style={{color:"red", fontSize : "20px"}}>hello form home</div>
+    );
+  }
+export default App;

@@ -1,0 +1,12 @@
+$id = 1 ;
+    $name = 'ahmed' ;
+    $class = 'first' ;
+
+//  get data of users who name is "ahmed" or class is "first"
+    $user = DB::table('users')->where('name', $name)->orWhere('class', $class)->get();
+    $users = User::where('id', 1)->orWhere('id', 4)->get(); // with model and orwhere
+
+
+//  get data of users order by 
+    $users = DB::table('users')->orderBy("name" , 'desc')->get(); // order desc
+    $users = User::orderBy("score")->where('id', $id)->get(); // with model and where

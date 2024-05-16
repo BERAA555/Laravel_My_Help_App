@@ -1,0 +1,16 @@
+import React from "react";
+import { ReactDOM } from "react";
+
+function App() {
+    const a = "Beraa" ;          // it's javaScript
+    return (    
+        <div>
+            {/*  inside '{}' is javaScript */}
+            <div>{"Hello M.s " + a }</div>  
+            {/* OR with Es6  */}
+            <div>{`Hello M.s ${a} `}</div>
+        </div>
+      );
+    }
+  
+export default App;

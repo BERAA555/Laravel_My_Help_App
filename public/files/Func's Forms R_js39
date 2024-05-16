@@ -1,0 +1,26 @@
+import React from "react";
+import { ReactDOM } from "react";
+
+function App() {
+//  1  //
+    function myFunction( x , y) {
+        return <div>{x+y}</div>;
+      }
+
+// 2 //
+  const Func2 = () => {
+                            // we can use js code here
+    return (
+        <div> hello </div>
+    );
+  }
+
+// return for main function //
+    return (
+        <div>
+            {myFunction(10,15)}
+            {Func2()}
+        </div>
+      );
+    }
+export default App;

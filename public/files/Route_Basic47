@@ -1,0 +1,20 @@
+use App\Http\Controllers\ExController;
+// Create route with view page and no extation
+Route::get('/', function () {
+    return view('welcome');
+});
+// Create route with word and extation (index)
+Route::get ("/index " , function (){
+return "hello";
+});
+// Create route with sending parameter
+Route::get ("index/{it}" , function($it){
+    return "hello " . $it;
+});
+// Create route with controller
+Route::get('/dashboard' , [ExController::class ,'dashboard'])->name('dashboard');
+// Create route with return page
+Route::get ("index/{it}" , function($it){
+   return view('login');    // login page
+
+});

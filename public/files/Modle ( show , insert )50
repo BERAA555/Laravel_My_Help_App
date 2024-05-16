@@ -1,0 +1,25 @@
+public function show()
+    {
+        $posts = Post::get();    // send all data to show it 
+        return view('show' , compact('posts')); 
+    }
+
+    public function insert(Request $request)
+    {
+        Post::create([
+            'name' => $request->name,
+            'password' => $request->password,
+        ]);
+// or // Post::create($request->all());
+        return redirect()->route('index');    
+    } 
+                // or 
+    public function insert2(Request $request, $id)
+    {
+        $post = new Post();
+        $post -> name = $request->name;
+        $post -> surname = $request->surname;
+        $post -> age = $request->age;
+        $post->save();
+        return redirect()->back() ;
+     }

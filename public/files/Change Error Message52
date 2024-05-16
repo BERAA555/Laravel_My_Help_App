@@ -1,0 +1,21 @@
+---------- change Error message ----------
+
+got to ( lang -> en -> validation.php  )
+
+1 - there are all Error message, we can find and change it .
+
+2 - To make special validation in under page there are two function  
+
+   1 - custom to write message
+
+         'custom' => [
+                'name' => [
+                         'required' => 'Please Enter Your :attribute'     //  attribute  is a parameters
+                 ],
+         ],
+
+   2 - attributes to change attribute's name
+
+	 'attributes' => [
+    	         'name' => 'Full Name',
+  	 ],

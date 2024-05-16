@@ -1,0 +1,18 @@
+---------------- add column to table after installed it in DB ----------------
+
+- php artisan make:migration add_age_to_users
+					  |           \
+			     < name of column >   < name of table >
+it will create new file and we will add column inside up func in it like that
+
+-$table -> string ("age")->after("name") 							
+
+then do :  php artisan migrate
+to delete column 
+
+- php artisan make:migration drop_age_to_users
+					     |           \
+			        < name of column >   < name of table >
+inside down function in drop file
+
+- $table -> dropColumn ("age");

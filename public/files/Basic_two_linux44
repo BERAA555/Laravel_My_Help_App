@@ -1,0 +1,14 @@
+1 - nano < file name >                       =>  for edit the file
+ 2 - cat < file name >                        => show file contain
+ 3 - find . - name < name of file or folder > => find it in pc
+ 4 - locate < name file or folder >           => find it in pc (more speed)
+ ( need install from pacman and update DB )
+   - locate -b "\www"                         => find all path with edded with www
+ 5 - sudo updatedb                            => update DB
+
+ 6 - echo "hello" > file.txt                  => remove text in file and write hello
+   - echo "hello" >> file.txt                 => write hello without remove
+
+ 7 - grep -ri "password" folder               => find the word inside all files in folder
+   - r => for can passing to folders if there are folders inside this folder
+   - i => for Don't care if the word is capital or small liter

@@ -1,0 +1,12 @@
+1 - man ls                => for explane the tool (need install)
+2 - cat file1 >> file3    => nake file3 inside file1
+3 - date                  => get today date
+4 - cal                   => get calendar for this month
+5 - cal 6 2023            => get calendar for 6.month in 2023
+6 - mv test.txt tes2.txt  => change file name
+  - mv test.txt folder    => move test.txt to folder
+  - mv test.txt  /<root folders>
+  - mv test.txt ~/<home folders>
+7 - cp test.txt folder/test2.txt  => copy test.txt inside folder
+  - cp test.txt  /<root folders>/test2.txt
+  - cp test.txt ~/<home folders>/test2.txt

@@ -1,0 +1,52 @@
+-------------- parameters --------------
+name="beraa"        // with no space
+number=10
+
+unset i         // delete this variable
+readonly i      // don't allow to chaneg or delete
+age=(1 5 3 8)   // array
+age[3]=5        // for change value in array
+-------------- print -------------
+i = 10
+echo "hello ${i}"       =>  print
+echo -n "hello ${i}"    => print in same line (with loop)
+echo -e "hello ${i}"    => enable to use color with code
+echo ${age[0]}          => in array
+
+-------------- oprating --------------
+echo $(($a + $i))
+echo `expr $i + $a`
+echo $((${age[0]} + ${age[2]}))  // in array
+
+-------------- read --------------
+read name                          // without string
+read -p  "enter your name " name   // with string
+read -s -p  "enter your name " name  // write with hidening
+-------------- if () -------------
+i=4                         -gt => greater then  >
+if [ $i -gt 5 ]             -lt => letter then   <
+then                        -ge => greater equel >=
+    echo "i > 5"            -le => letter equel  <=
+elif [ $i -lt 5 ]           -ne => not equel     !=
+then                         && => and => if [ $i ] && [ $s ]
+    echo "i < 5"             || => or  => if [ $i ] || [ $s ]
+else
+    echo "equl"
+fi
+----------------------------
+EX :      // if there is i variable will print yes
+if [ $i ]
+then
+    echo "yes"
+else
+    echo "no"
+fi
+----------------------------------
+Ex :         // know if file empty or not
+name=$(cat dene.txt)
+if [ $name ]
+then
+    echo "yes"
+else
+    echo "no"
+fi

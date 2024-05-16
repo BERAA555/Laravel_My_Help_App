@@ -1,0 +1,52 @@
+$ in data page 
+import React from "react";
+import { ReactDOM , createContext} from "react";
+import Home2 from './home2'  // import Home2
+import Home3 from './home3'  // import Home3
+
+function Home (){
+
+    const count = {count : 10 };    // data 
+    const user = {name : "beraa"};  // data
+
+    return (
+        <>  
+{/* send count and user data to Home2 and return page here*/}    
+            <userContext.Provider value={user}>  
+                <countContext.Provider value={count}>
+{/* send this data to Home2 page and return it here  */}
+                    <Home2 />
+                </countContext.Provider>
+            </userContext.Provider>
+{/* send just user data to Home2 and return page here */} 
+            <userContext.Provider value={user}> 
+                <Home3 />
+            </userContext.Provider>
+        </>
+    );
+}
+export default Home;
+// Create Context for put datas inside it then export it
+export const userContext = createContext();   
+export const countContext = createContext();
+
+$ in Other page
+import React from "react";
+import { ReactDOM , useContext } from "react";
+// import Created Context form home page
+import {userContext ,countContext } from "./home"
+
+function Home2 (){
+    // set data in variable using useContext
+    const user  = useContext(userContext);
+    const count = useContext(countContext);
+
+    return (
+        <>
+        {/* use this data */}
+        <div> name is  {user.name} </div>
+        <div> count is {count.count } </div>
+        </>
+    );
+}
+export default Home2;

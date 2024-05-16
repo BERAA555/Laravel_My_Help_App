@@ -1,0 +1,21 @@
+import React from "react";
+import { ReactDOM } from "react";
+
+function App() {
+
+    let text = "Beraa" ;
+    let x  ;
+
+    function myFunction2() {
+        if (text == "Beraa" ){           // here is js
+            x = "Hello Ms : " + text ;
+        }
+        return (                  // inside return is html
+            <div>{x}</div>        // and inside '{}' is js
+            );
+    }
+    return(
+        <div>{myFunction2()}</div>
+    );
+}
+export default App;

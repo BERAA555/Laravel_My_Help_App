@@ -1,0 +1,25 @@
+<form  method="POST" action ="{{route('insertlang')}}">
+        @method('POST')
+        @csrf
+        <label >Language Name:</label>
+        <x-text-input type="text" name="name"  required /> 
+{{-- or --}} 
+        <input type="text" name="name"  required />   
+        <button > Add </button>
+        <a href="{{route('dashboard')}}" > back </a>
+{{--  for edit --}}
+    {{-- <form action ="{{route('update' , $kayit->id)}}" method = "POST">  
+        @method('PUT')
+        @csrf 
+        <button type="submit" >update</button> --}}
+{{-- for delete --}}
+    {{-- <form action="{{route('delete' , $kayit->id) }}" method="POST" >   
+        @method('delete')                             
+        @csrf                                        
+        <button type="submit"  >Delete</button> --}}            
+    </form>
+    @foreach ($posts as $item )
+        {{$item->name}}
+        {{$item->password}}
+        <a href="{{route('update' , $item->id)}}" > Update </a>
+    @endforeach

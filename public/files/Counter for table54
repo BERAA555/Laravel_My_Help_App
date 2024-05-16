@@ -1,0 +1,21 @@
+<style type="text/css">
+    body{
+        counter-reset: Serial;  
+    }
+    
+    .Bcount th:first-child:before
+    {
+      counter-increment: Serial;      
+      content: counter(Serial); 
+    }
+</style>
+
+in html
+<tr>
+        <th>ID</th>
+        <th>Name</th>                
+</tr>
+<tr class="Bcount">
+     <th></th>
+     <td>{{$item->name}}</td>
+ </tr>

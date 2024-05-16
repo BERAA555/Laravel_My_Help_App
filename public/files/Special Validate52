@@ -1,0 +1,18 @@
+php artisan make:request storeRequest    // location in HTTP -> Request
+
+1 - first remove $request  in store function if you do it before
+2 - make authorize funtion in true ( in Http/Request/storeRequest )
+3 - put validation in rules funtion  
+
+ return [
+            'name' => 'required | mak : 10 ',           
+            'password' => 'required ',
+        ];
+
+4 - change request type in store to new type ( new request ) in controller
+
+      public function store ( storeRequest $request)  {  }
+
+  - and don't forget to import it in a page
+    
+     use App\Http\Requests\storeKayitRequest ;

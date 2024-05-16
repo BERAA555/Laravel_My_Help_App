@@ -1,0 +1,34 @@
+in first page 
+import React,{Component} from "react";
+import { ReactDOM } from "react";
+import Home2 from './home2'
+
+class Home extends Component {
+    render(){
+        return (
+        <>
+            <Home2  p = {{ name : "Beraa" , age : 24  }} />
+            <Home2  p = {{ name : "Ahmed" , age : 28  }} />
+            <Home2  p = {{ name : "Amira" , age : 30  }} />
+        </>
+        );
+    }
+}
+export default Home;
+
+in seconde page
+import React,{Component} from "react";
+import { ReactDOM } from "react";
+
+class Home2 extends Component {
+    render(){
+        return (
+        <div>
+            <div>Programer Name is {this.props.p.name}</div>
+            <div>Programer Age is {this.props.p.age}</div>
+            <br/>
+        </div>       
+        );
+    }
+}
+export default Home2;

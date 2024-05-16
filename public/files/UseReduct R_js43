@@ -1,0 +1,24 @@
+import React from "react";
+import { useState , useReducer} from 'react';
+
+const Home = () => {
+    const [count, setcount] = useState(10);  // usestate
+    // create function take value and active 
+    const fun = (state , active) => {   
+        if (active == "add")
+             setcount(count +1 ) ;
+        else if (active == "minus")
+             setcount(count -1 ) ;    
+    }
+    //  create useReducer have state value (defualt value is count) and dispatch function have
+    //  the name of active AND will send this values ( state and active ) to (fun) function
+    const [state, dispatch] = useReducer(fun, count);
+    return ( <>
+        {/* when clicked (dispatch) function will run and send values to (fun) using useReducer  */}
+                <button onClick={() => dispatch ("add")}>add</button>
+                <button onClick={() => dispatch ("minus")}>minus</button>
+                {count}
+             </>
+     );
+}
+export default Home;

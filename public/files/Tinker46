@@ -1,0 +1,16 @@
+------------------ insert data using terminal ------------------
+
+php artisan tinker
+
+1 - first type
+ 
+	$user = new User()
+	$user -> name = 'beraa';
+	$user -> password = '147852';
+	$user -> state = 1;
+	$user -> save();
+
+2 - seconde type 
+	User::create(['name' => 'beraa' , 'password' => '2222' , 'state' => 1]);
+
+---------------------------------------------------------------------------------

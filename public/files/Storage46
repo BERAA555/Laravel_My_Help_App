@@ -1,0 +1,24 @@
+use Illuminate\Support\Facades\Storage;
+class DeneController extends Controller
+{
+    public function add (){
+        $Contents = "hello beraa in local disk" ;
+        Storage::disk("local")->put('example.txt', $Contents);  
+        return "ok";    
+    }
+// in ( config->filesystems ) create a new disk
+// 'beraa' => [
+//     'driver' => 'local',
+//     'root' => public_path('image'), // the path in public folder -> image
+//     'url' => env('APP_URL').'/storage',
+//     'visibility' => 'public',
+//     'throw' => false,
+// ], 
+    public function add2 (){
+        $Contents = "hello beraa in beraa disk" ;
+        Storage::disk("beraa")->put('example.txt', $Contents);  
+        // $contents = Storage::disk('local')->get('file.txt'); // get data from file
+        // Storage::disk('public')->delete(<name of file>);     // delete file
+
+        return "ok";    
+    }

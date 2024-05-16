@@ -1,0 +1,11 @@
+public function addphoto (){
+        $menus = Menu::get();
+        $foods = Food::get();
+        $foodHaves = array();
+        foreach($foods as $food){
+            if ($food->photos != "[]"){
+                array_push($foodHaves , $food );
+            }
+        }
+        return view('foodData.addPhoto' , compact("menus" ));
+    }

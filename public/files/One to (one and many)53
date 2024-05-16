@@ -1,0 +1,46 @@
+--------------- one to one ---------------
+Create relationship with user and phone ( for every user there is one phone number )
+1 - in users table ( it's no think defrent )
+2 - in phones table
+        $table->string('number');
+        $table->foreignId('users_id')->references('id')->on('users')->cascadeOnDelete();
+// or   $table->foreignId('users_id')->constrained('users')->cascadeOnDelete();
+--------------- show data with relationship ---------------
+1 - show phone's data from user model
+	1 - create function to relate between user model with phone model in user model
+
+	   public function phone() {
+            return $this->hasOne(Phone::class , 'users_id');  // ( users_id ) is the column in phones table which we get data
+  		 }
+	2 - create controller and funtion in it to show data
+
+	  public function index(){
+   			 $user = Users::find(1);   //  select number of id
+   			 return $user->phone  ;   // show data using the func in user model
+   		}
+    3 - for insert data on DB
+
+    public function insertpart(Request $request){
+
+        phone::create([								// don't forget fillable for user_id in phone model
+            'name'    => $request->name,
+            '$user_id' => $request->user_id ,
+        ]);
+            return  redirect()->back();
+        }
+        
+2 - show user's data from phone model
+	1 - create function to relate between user model with phone model in phone model
+
+	    public function user() {
+       			 return $this->belongsTo(User::class , 'lang_id');   //  ( id ) is the column in users table which we get data , it's coming from phone
+   		 }
+	2 - create controller and funtion in it to show data
+	  public function show(){
+   			 $phone = Phone::find(1);   //  select number of id
+   			 return $phone->user  ;   // show userusing the func in user model
+   		}
+  
+__________________  one to many __________________
+- all code is same just change hasOne to hasMany in phone function
+ __________________ __________________ __________________ __________________ __________________

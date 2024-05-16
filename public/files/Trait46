@@ -1,0 +1,25 @@
+-------------------- Trait --------------------
+Create Traits folder in app/Http
+- make trait page manually and add this code for know it in project
+
+	<?php                 				  // inportant
+		namespace App\Http\Traits;		  // يجب ان تكون في السطر الاول
+
+		trait TestTrait {				
+   			 public function index($model) {
+	       		 $user = $model::all();
+        			return $user ;
+    			}
+		}	
+- in controller 	
+
+	  use App\Http\Traits\TestTrait;      // import the page in top outside class
+
+  	  use TestTrait;         // inside class but outside function   // important
+
+  	  public function getdata(){
+    	   	 $user =  $this->index(new User() );  // or User::class for model ||
+    	   	 or  $this->index($name) for normal parameter
+     	 	 return  $user ;
+	    } 
+	}

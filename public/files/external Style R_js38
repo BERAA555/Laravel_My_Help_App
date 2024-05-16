@@ -1,0 +1,15 @@
+import React from "react";
+import { ReactDOM } from "react";
+import '../Css/Home.css'
+
+function App() {
+    return (
+      <div className="app" >hello form home</div>
+    );
+  }
+export default App;  
+/////////////  in Css page ///////////////
+.app{
+    color : red ;
+    font-size : 20px ;
+}

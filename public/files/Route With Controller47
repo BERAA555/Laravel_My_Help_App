@@ -1,0 +1,16 @@
+//1 for normal controller
+Route::get("/posts/update" , [PostController::class, 'update']);  
+//2 controller with group
+Route::controller(PostController::class)->group(function(){
+    Route::get("/home" , 'home');
+    Route::get("/update" , 'update');
+});
+//3 for controller resource ( function's names is defined )
+Route::resource('posts', PostController::class);
+//4 for invoke controller  
+Route::get('deletePost' , PostController::class );
+//5 using only and expect
+Route::resource('posts', PostController::class)->only (['create' , 'show']) ; 
+    // enable to use only this functions
+Route::resource('posts', PostController::class)->expect (['create' , 'show']) ; 
+    // enable to use all functions without this

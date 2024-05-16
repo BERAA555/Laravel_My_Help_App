@@ -1,0 +1,19 @@
+<form  method="POST" action ="{{route('insert')}}" enctype="multipart/form-data">
+        @csrf
+        @method('post')
+        <label >Form</label><br/>
+        name : <input type="text" name="name" required /> <br/>
+        @error("name") <div>{{$message}}</div> @enderror
+        age : <input type="text" name="age"  required /> <br/>
+        @error("age") <div>{{$message}}</div> @enderror
+        <button type="submit" >insert</button>
+    </form>  
+    {{-- @if($errors -> any() )
+           <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors -> all() as $error )
+                    <li style="text-align: center ; list-style: none;">{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+    @endif --}}

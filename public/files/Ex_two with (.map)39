@@ -1,0 +1,18 @@
+import React from "react";
+import { ReactDOM } from "react";
+
+function App() {
+
+    const cars = ["Fox", "Volvo", "BMW" , "Togg"];
+
+    const PrintCars =  cars.map(car =>  (
+        <div>
+          <div>{car}</div> 
+        </div>
+       )
+    ); 
+    return(
+        <div>{PrintCars}</div>
+    );
+}
+export default App;

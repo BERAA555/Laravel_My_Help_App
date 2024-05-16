@@ -1,0 +1,18 @@
+// <input type="text" name="name[]" placeholder="Enter Step"  >
+    // add js script for create button to add input have same name 
+    public function store(Request $request){
+
+        for ($i = 0; $i < count($request->name); $i++){
+
+            $request->validate([
+                'name' => 'required' ,  
+                "name.*"  => 'required' ,  
+                'food_id' => 'required' ,
+            ]);
+            Step::create([
+                'food_id' => $request->food_id,
+                'name' => $request->step[$i],
+            ]);
+        } 
+        return redirect()->back() ;
+    }

@@ -1,0 +1,10 @@
+-------------- create controller -----------------
+php artisan make:controller PostController
+
+-------------- create controller with resource -----------------
+php artisan make:controller PostController -r       // or
+                                           -resource
+
+----------------- create invoke controller -----------------
+it's to make single action
+php artisan make:controller PostController -i

@@ -1,0 +1,33 @@
+------------------ mail ------------------
+1 - install mailgun on project
+	composer require symfony/mailgun-mailer symfony/http-client
+2 - install mail 
+	php artisan make:mail TestMail
+2 - install mail with form
+	php artisan make:mail TestMail --markdown=emails.hello
+						src of page ( it will make hello page in emails folder inside view  )
+3 - change the mail setting
+	1 - in .env add this
+		MAILGUN_DOMAIN=sandboxbc2842fbcb0b4851ad7313044623c515.mailgun.org
+		// the data from mailgun website ( domian )
+		MAILGUN_SECRET=5d2ef805951114b802d51465353dff8f-680bcd74-78590564    ( api key )
+and change this
+		MAIL_FROM_ADDRESS="beraaceze@gmail.com"	
+		MAIL_FROM_NAME="beraaceze"
+
+	2 - in config -> mail.php
+		        'smtp' => [
+            		'transport' => 'mailgun',     // change to mailgun
+4 - in mail page ( Mail ) inside function build
+	  public function build(){
+      		  return $this->view('mail');   // if it in another folder inside view => ('mails.hello')
+   	 }
+5 - in controller 
+	   public function send( ){
+    		Mail::to('beraaceze@gmail.com')->send(new TestMail());
+    		return 'sended';
+	}
+don't forget import the pages 
+	use Illuminate\Support\Facades\Mail;
+	use App\Mail\TestMail;
+-----------------------------------------------------------------------------------

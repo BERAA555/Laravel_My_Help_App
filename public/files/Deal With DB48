@@ -1,0 +1,24 @@
+use Illuminate\Support\Facades\DB;
+class PostController extends Controller
+{
+    // show data
+    public function show($id){
+        $users = DB::table('users')->where('id', $id)->get();
+        return view('show' , compact('users'));
+    }
+    // insert and update data
+    public function insert(Request $request , $id){
+        DB::table('users')->where('id', $id)
+        // ->update
+        ->insert([
+            'name' => $request->name ,
+            'password' => $request->password ,
+            ]);
+        return redirect()->back();
+    }
+    // Delete data
+    public function delete($id){
+        $users = DB::table('users')->where('id', $id)->delete();
+        return redirect()->back();
+    }
+}

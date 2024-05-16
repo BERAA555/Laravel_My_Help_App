@@ -1,0 +1,29 @@
+import React from "react";
+import { useState , useReducer} from 'react';
+
+const Home = () => {
+    const [{number1 , number2 , result}, setcount] = useState({number1:0 , number2:0 , result:0}); 
+    const fun = (state , active) => {    
+        switch (active.type)  {
+            case "add" :setData('+') ;
+            case "minus" :setData('-') ;
+        }
+    }
+    const setData =(active)=>{    
+        if (active == '+'){
+            setcount(() => ({       
+                number1 : number1 + 5 ,
+                number2 : number2 + 5 ,
+                result : result + 10 
+            }));
+        }
+      }
+    const [state, dispatch] = useReducer(fun, {number1 , number2 , result});
+    return ( <>
+                <button onClick={() => dispatch ({type:"add"})}>add</button>
+                <button onClick={() => dispatch ({type:"minus"})}>minus</button>
+                <div>{number1} ** {number2} ** {result} </div>
+             </>
+     );
+}
+export default Home;

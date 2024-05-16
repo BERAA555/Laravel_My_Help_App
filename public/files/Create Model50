@@ -1,0 +1,21 @@
+Model is the bridge between controller and DB <mrc> (model route controller)
+
+---------- create model ----------
+
+- php artisan make:model Post -mcr
+                                |
+		< migration - controller -  resourse>
+--------------------------------------------------
+
+- public $timestamps = false ;         // cancle (created_at , updated_at) column
+
+- public $incrementing = false ;       // cancle incrementing for column
+
+- protected $primarykey = "post-id";    // for add our id column inside default id column
+
+------------------- important ------------------------
+// we should Enable the column Which we can change or add it with $fillable
+    and disenable the column Which we can't change or add it with $guarded
+    
+- protected $fillable = [ 'name' , 'age'];
+- protected $guarded = [ 'email'];

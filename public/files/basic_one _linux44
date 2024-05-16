@@ -1,0 +1,30 @@
+1  - Create Folder             =>  mkdir newFolder
+2  - Create File               =>  touch newFile
+3  - Remove Folder             =>  rmdir oldFolder
+4  - Remove Folder have files  =>  rm -R oldFolder
+5  - Remove File               =>  rm    oldFile
+6  - clear                     =>  clear
+7  - ls -l                     =>  show folder contain with details
+8  - change password           =>  sudo passwd <username>
+9  - show version              =>  php -v or php --version
+10 - help                      => <package name> --help  // -h
+
+- for Arch Linux
+1 - update package  =>  sudo pacman -Syy
+
+pacman package
+
+1 - install program =>  sudo pacman -S < name of package >
+2 - remove program  =>  sudo pacman -R < name of package >
+
+- Another
+1 - whoami  =>  pc name
+2 - cmatrix =>  form (need install from pacman)
+3 - sl      =>  form (need install from pacman)
+4 - top     => data about cpu and ram (need install)
+
+
+*output of ls -l : d rwx r-x --x
+    d   = (direction)
+    rwx = (Read Write Excute)
+    l   = it's link for folder in another place

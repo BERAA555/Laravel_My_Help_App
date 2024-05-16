@@ -1,0 +1,29 @@
+--------------- many to many ---------------
+1 - create two table ( user  , phone ) to know any user have any phone  < beraa - sansung > < ali - iphone >
+2 - create a table will have id's for user and phone from to table  ( user_phone_pivot )
+( we will put the values in tables handly using insert  )
+3 - in the tables there are
+	1 - int user and in phone no think is different
+	2 - in user_phone_pivot
+            $table->id();
+            $table->integer('user_id');       // it have id from user
+            $table->integer('phone_id');    // it have id from phone
+
+4 - in the models
+	1- in phone model
+            public function users(){
+                return $this->belongsToMany(User::class , 'phone_user_pivot');
+            }
+	2 - in user model
+            public function phones() {
+                return $this->belongsToMany(Phone::class , 'phone_user_pivot');
+            }
+5 - in controller
+        public function index(){
+                $user = User::find(1);
+                return  $user->phones   ;
+            }
+        public function show(){
+            $phone = Phone::find(2);
+            return  $phone->users   ;
+        }
